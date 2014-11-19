@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @agile_poi.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @agile_poi.description %>
+</p>
+
+<p>
+  <strong>Created by:</strong>
+  <%= @agile_poi.created_by %>
+</p>
+
+<p>
+  <strong>Posted by:</strong>
+  <%= @agile_poi.posted_by %>
+</p>
+
+<p>
+  <strong>Decay rate:</strong>
+  <%= @agile_poi.decay_rate %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @agile_poi.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @agile_poi.longitude %>
+</p>
+
+<%= link_to 'Edit', edit_agile_poi_path(@agile_poi) %> |
+<%= link_to 'Back', agile_pois_path %>

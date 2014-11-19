@@ -1,0 +1,45 @@
+<h1>Listing agile_pois</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Created by</th>
+      <th>Posted by</th>
+      <th>Decay rate</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @agile_pois.each do |agile_poi| %>
+      <tr>
+        <td><%= agile_poi.title %></td>
+        <td><%= agile_poi.description %></td>
+        <td><%= agile_poi.created_by %></td>
+        <td><%= agile_poi.posted_by %></td>
+        <td><%= agile_poi.decay_rate %></td>
+        <td><%= agile_poi.latitude %></td>
+        <td><%= agile_poi.longitude %></td>
+        <td><%= link_to 'Show', agile_poi %></td>
+        <td><%= link_to 'Edit', edit_agile_poi_path(agile_poi) %></td>
+        <td><%= link_to 'Destroy', agile_poi, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div id='map'></div>
+
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoicmVuZW1leWUiLCJhIjoiNDNVQnFlSSJ9.AVMZSz8I4zp7qYWfNhHmAg';
+var map = L.mapbox.map('map', 'renemeye.6bc642c5').setView([52.1195724, 11.6291814], 17);
+
+</script>
+
+<br>
+
+<%= link_to 'New Agile poi', new_agile_poi_path %>

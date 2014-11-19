@@ -1,0 +1,57 @@
+@import "compass";
+
+.main-navbar {
+  display: none;
+}
+
+.landingpage {
+
+  .btn-primary {
+    background-color: rgba(#4A90E2, 0.4);
+    color: #4A90E2;
+    @include text-shadow(rgba(white, 0.32) 0px 0px 10px, rgba(white, 0.8) 0px 0px 4px);
+    position: relative;
+    z-index: 1;
+    &:before{
+      z-index: -1;
+      position: absolute;
+      background-color: rgba(white, 0.4);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      content: " ";
+      border-radius: 3px;
+    }
+  }
+
+  .transparent.form-control {
+    background-color: rgba(white, 0.3);
+    border-color: #4A90E2;
+  }
+
+  .what-are-traciebles, .value-propositions {
+    background-color: #4A90E2;
+    color: white;
+  }
+  header {
+    background-image: url("/assets/header-map.png");
+    background-size: cover;
+    .title, .subtitle{
+      color: white;
+      //@inlcude text-shadow(0 0 27px rgba(black, 0.32));
+      @include text-shadow(rgba(black, 0.32) 0px 0px 27px, rgba(black, 0.32) 0px 0px 4px);
+    }
+  }
+  .title {
+    font-size: 100pt;
+  }
+  .subtitle {
+    font-size: 32pt;
+  }
+
+  .fashion-button {
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+}

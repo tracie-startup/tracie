@@ -1,0 +1,45 @@
+<%= form_for(@agile_poi) do |f| %>
+  <% if @agile_poi.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@agile_poi.errors.count, "error") %> prohibited this agile_poi from being saved:</h2>
+
+      <ul>
+      <% @agile_poi.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :created_by %><br>
+    <%= f.number_field :created_by %>
+  </div>
+  <div class="field">
+    <%= f.label :posted_by %><br>
+    <%= f.text_field :posted_by %>
+  </div>
+  <div class="field">
+    <%= f.label :decay_rate %><br>
+    <%= f.text_field :decay_rate %>
+  </div>
+  <div class="field">
+    <%= f.label :latitude %><br>
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br>
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

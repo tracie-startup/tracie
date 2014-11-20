@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :beta_requests
+
   resources :agile_pois
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to new_beta_request_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Beta request
+  <% end %>
+  <h1>Listing beta_requests</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Email</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @beta_requests) do |beta_request| %>
+            <td><%= beta_request.email %></td>
+            <td><%= link_to 'Show', beta_request %></td>
+        <td><%= link_to 'Edit', edit_beta_request_path(beta_request) %></td>
+        <td><%= link_to 'Destroy', beta_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

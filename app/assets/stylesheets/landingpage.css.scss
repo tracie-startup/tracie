@@ -154,6 +154,16 @@ body.landingpage {
     }
   }
   .example-map {
+    position: relative;
+    #test-map {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
     background-image: url("/assets/preview-map.png");
     background-size: cover;
     background-position: center center;

@@ -1,5 +1,5 @@
 <% body_class "landingpage" %>
-<% page_title "Hallo Welt" %>
+<% page_title "Intelligent die Welt retten." %>
 
 <div>
   <header class="row">
@@ -51,7 +51,14 @@
     <div class="col-sm-12 traciebles-text">Traciebles sind alle Dinge die Du und deine Freunde im Moment spannend finden. Verfolge sie!</div>
   </div>
   <section class="example-map row">
-    <a class="btn btn-default btn-primary col-sm-6 col-sm-offset-3">Wie funktioniert Tracie?</a>
+    <div id='test-map'></div>
+
+    <script>
+    L.mapbox.accessToken = 'pk.eyJ1IjoicmVuZW1leWUiLCJhIjoiNDNVQnFlSSJ9.AVMZSz8I4zp7qYWfNhHmAg';
+    var test_map = L.mapbox.map('test-map', 'renemeye.6bc642c5').setView([52.1215724, 11.6291814], 16);
+
+    </script>
+    <a class="btn btn-default btn-primary col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">Wie funktioniert Tracie?</a>
   </section>
   <section class="value-propositions row">
     <div class="col-sm-4">

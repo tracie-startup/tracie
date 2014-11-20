@@ -5,6 +5,7 @@ $main-color: #4A90E2;
 $white-color: white;
 
 body.landingpage {
+  font-family: 'Roboto', sans-serif;
 
   padding-top: 0;
 
@@ -63,11 +64,13 @@ body.landingpage {
       padding-bottom: 20px;
     }
     .value-text, .traciebles-text {
-      font-size: 24pt;
+      font-size: 28pt;
       padding-left: 30px;
       padding-right: 30px;
-      padding-top: 20px;
-      padding-bottom: 20px;
+      padding-top: 0px;
+      padding-bottom: 60px;
+      font-family: 'Permanent Marker', cursive;
+      font-weight: 400;
     }
     .value-text {
       @include rotate(-1deg);
@@ -90,6 +93,17 @@ body.landingpage {
       background-image: url("/assets/header-map.png");
       background-size: cover;
       display: block;
+    }
+    .title {
+      font-weight: 100;
+      line-height: 160px;
+      margin-top: 100px;
+    }
+    .subtitle {
+      font-weight: 300;
+      line-height: 20px;
+      margin-bottom: 80px;
+      padding-left: 25px;
     }
     .title, .subtitle{
       color: $white-color;

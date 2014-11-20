@@ -14,7 +14,6 @@ ready = ->
       raw_points = $.parseJSON(data)
       setTimeout(insertNextPoint,100)
 
-  #TODO: Free Memory. Circles are only loaded. They arent removed jet
   insertNextPoint = ->
     if raw_points.length
       point = raw_points.pop()

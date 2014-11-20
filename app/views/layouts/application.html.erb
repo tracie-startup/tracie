@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Starter Template for Bootstrap</title>
+  <title>Tracie <%= "| #{yield(:page_title)}" unless yield(:page_title).to_s.empty? %></title>
   <meta name="description" content="">
   <meta name="author" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
@@ -21,7 +21,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%=yield(:body_class)%>">
   <div class="main-navbar navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">

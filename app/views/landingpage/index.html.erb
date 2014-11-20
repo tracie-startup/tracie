@@ -1,17 +1,25 @@
-<div class="landingpage">
+<% body_class "landingpage" %>
+<% page_title "Hallo Welt" %>
+
+<div>
   <header class="row">
-    <div class="title">Tracie</div>
-    <div class="subtitle">Verpasse nichts mehr. Nie wieder.</div>
+    <div class="col-sm-offset-1 col-sm-10">
+      <div class="title">Tracie</div>
+    </div>
+    <div class="col-sm-offset-1 col-sm-10">
+      <div class="subtitle">Verpasse nichts mehr. Nie wieder.</div>
+    </div>
     <div class="row">
-      <div class="col-sm-6 col-sm-offset-3">
-          <div class="col-lg-6">
-            <div class="input-group fashion-button">
-              <input type="text" class="transparent form-control">
-              <span class="input-group-btn">
-                <button class="btn btn-default btn-primary" type="button">Ich wills testen!</button>
-              </span>
-            </div><!-- /input-group -->
-          </div><!-- /.col-lg-6 -->
+      <div class="col-sm-6 col-sm-offset-3 beta-form">
+        <div class="input-group fashion-button">
+          <input type="text" class="transparent form-control" placeholder="Deine E-Mail-Adresse">
+          <span class="input-group-btn">
+            <button class="btn btn-default btn-primary" type="button">Ich wills testen!</button>
+          </span>
+        </div><!-- /input-group -->
+        <div class="description">
+          Gib uns deine E-Mail-Adresse und wir laden dich in die nächste Testgruppe ein.
+        </div>
       </div>
     </div>
   </header>
@@ -22,7 +30,7 @@
     <div class="col-sm-12">Traciebles sind alle Dinge die Du und deine Freunde im Moment spannend finden. Verfolge sie!</div>
   </div>
   <section class="example-map row">
-    <div class="col-sm-12"><button>Wie funktioniert Tracie?</button></div>
+    <a class="btn btn-default btn-primary col-sm-6 col-sm-offset-3">Wie funktioniert Tracie?</a>
   </section>
   <section class="value-propositions row">
     <div class="col-sm-4">Verpasse nichts Interessantes mehr!</div>

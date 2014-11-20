@@ -1,14 +1,22 @@
 @import "compass";
 
-.main-navbar {
-  display: none;
-}
+$footer-color: #4A4A4A;
+$main-color: #4A90E2;
+$white-color: white;
 
-.landingpage {
+body.landingpage {
+
+  padding-top: 0;
+
+  .main-navbar {
+    display: none;
+  }
 
   .btn-primary {
-    background-color: rgba(#4A90E2, 0.4);
-    color: #4A90E2;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgba($main-color, 0.4);
+    color: $main-color;
     @include text-shadow(rgba(white, 0.32) 0px 0px 10px, rgba(white, 0.8) 0px 0px 4px);
     position: relative;
     z-index: 1;
@@ -22,23 +30,69 @@
       bottom: 0;
       content: " ";
       border-radius: 3px;
+      @include transition(all 0.3s ease-out);
+    }
+    @include transition(all 0.3s ease-out, color 0.1s, text-shadow 0.2s);
+    &:hover {
+      @include text-shadow(rgba($main-color, 1) 0px 0px 10px, rgba($main-color, 1) 0px 0px 4px);
+      background-color: rgba($main-color, 0.89);
+      color: $white-color;
+      @include text-shadow(none);
+      &:before {
+        background-color: rgba(white, 0);
+      }
     }
   }
 
   .transparent.form-control {
+    padding-top: 30px;
+    padding-bottom: 29px;
     background-color: rgba(white, 0.3);
-    border-color: #4A90E2;
+    border-color: $main-color;
+    text-align: center;
   }
 
   .what-are-traciebles, .value-propositions {
-    background-color: #4A90E2;
-    color: white;
+    background-color: $main-color;
+    color: $white-color;
+    div {
+      text-align: center;
+      font-size: 24pt;
+      font-weight: 300;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    .value-text, .traciebles-text {
+      font-size: 24pt;
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    .value-text {
+      @include rotate(-1deg);
+    }
+
+    .traciebles-text {
+      @include rotate(1deg);
+    }
   }
   header {
-    background-image: url("/assets/header-map.png");
-    background-size: cover;
+    position: relative;
+    &:before {
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.95;
+      background-image: url("/assets/header-map.png");
+      background-size: cover;
+      display: block;
+    }
     .title, .subtitle{
-      color: white;
+      color: $white-color;
       //@inlcude text-shadow(0 0 27px rgba(black, 0.32));
       @include text-shadow(rgba(black, 0.32) 0px 0px 27px, rgba(black, 0.32) 0px 0px 4px);
     }
@@ -50,8 +104,50 @@
     font-size: 32pt;
   }
 
-  .fashion-button {
+  .beta-form {
     margin-top: 60px;
     margin-bottom: 60px;
+    .description {
+      color: $footer-color;
+      font-size: 9pt;
+      text-align: center;
+      @include text-shadow(rgba(white, 0.8) 0px 0px 8px, rgba(white, 1) 0px 0px 2px);
+    }
+  }
+
+  .logo-row {
+    div {
+      text-align: center;
+      font-size: 60px;
+      font-color: $footer-color;
+    }
+    border-left: 1px solid $footer-color;
+    border-right: 1px solid $footer-color;
+  }
+
+  footer {
+    background-color: $footer-color;
+    color: $white-color;
+    padding-bottom: 100px;
+    padding-top: 20px;
+    ul {
+      list-style: none;
+    }
+    a {
+      font-size: 13pt;
+      color: $white-color;
+    }
+  }
+  .example-map {
+    background-image: url("/assets/preview-map.png");
+    background-size: cover;
+    background-position: center center;
+    padding-top: 180px;
+    padding-bottom: 180px;
+  }
+
+  .feature-icon .octicon {
+    font-size: 80px;
+    width: 80px;
   }
 }

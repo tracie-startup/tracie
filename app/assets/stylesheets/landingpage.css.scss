@@ -13,10 +13,17 @@ body.landingpage {
     display: none;
   }
 
+  .group-has-error {
+    .transparent.form-control {
+      background-color: rgba(red, 0.1);
+    }
+  }
+
   .btn-primary {
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: rgba($main-color, 0.4);
+
     color: $main-color;
     @include text-shadow(rgba(white, 0.32) 0px 0px 10px, rgba(white, 0.8) 0px 0px 4px);
     position: relative;
@@ -175,6 +182,17 @@ body.landingpage {
     font-size: 80px;
     width: 80px;
   }
+
+  .alert {
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-bottom: 0px;
+    padding-top: 30px;
+    text-align: center;
+    border-radius: 0;
+
+  }
+
   .logo {
     //background-color: red;
     height: 90px;

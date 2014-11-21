@@ -136,8 +136,8 @@ body.landingpage {
       font-size: 60px;
       font-color: $footer-color;
     }
-    border-left: 1px solid $footer-color;
-    border-right: 1px solid $footer-color;
+    // border-left: 1px solid $footer-color;
+    // border-right: 1px solid $footer-color;
   }
 
   footer {
@@ -174,5 +174,29 @@ body.landingpage {
   .feature-icon .octicon {
     font-size: 80px;
     width: 80px;
+  }
+  .logo {
+    //background-color: red;
+    height: 90px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    &.netz39 {
+      background-image: url("/assets/logo-netz39.svg");
+      opacity: 0.7;
+    }
+    &.ovgu {
+      background-image: url("/assets/logo-ovgu.svg");
+    }
+    &.fin {
+      background-image: url("/assets/logo-fin.svg");
+      opacity: 0.7;
+    }
+    &.isg {
+      background-image: url("/assets/logo-isg.svg");
+      opacity: 0.7;
+    }
   }
 }

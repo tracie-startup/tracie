@@ -97,7 +97,7 @@ body.landingpage {
       right: 0;
       bottom: 0;
       opacity: 0.95;
-      background-image: url("/assets/header-map.png");
+      background-image: image-url("header-map.png");
       background-size: cover;
       display: block;
     }
@@ -171,7 +171,7 @@ body.landingpage {
       right: 0;
       bottom: 0;
     }
-    background-image: url("/assets/preview-map.png");
+    background-image: image-url("preview-map.png");
     background-size: cover;
     background-position: center center;
     padding-top: 180px;
@@ -202,18 +202,18 @@ body.landingpage {
     background-size: contain;
     background-repeat: no-repeat;
     &.netz39 {
-      background-image: url("/assets/logo-netz39.svg");
+      background-image: image-url("logo-netz39.svg");
       opacity: 0.7;
     }
     &.ovgu {
-      background-image: url("/assets/logo-ovgu.svg");
+      background-image: image-url("logo-ovgu.svg");
     }
     &.fin {
-      background-image: url("/assets/logo-fin.svg");
+      background-image: image-url("logo-fin.svg");
       opacity: 0.7;
     }
     &.isg {
-      background-image: url("/assets/logo-isg.svg");
+      background-image: image-url("logo-isg.svg");
       opacity: 0.7;
     }
   }

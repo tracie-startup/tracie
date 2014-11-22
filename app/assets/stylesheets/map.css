@@ -1,7 +1,21 @@
+ 
+ div.container {
+ }
+
  #map {
+   margin-left: -15px;
+   margin-right:-15px;
    position:absolute;
    top:0;
    bottom:0;
    width:100%;
    min-height: 500px;
-}
+ }
+
+ button#add {
+   position:absolute;
+   top: 420px;
+   left: 50%;
+   width: 100px;
+   margin-left: -50px;
+ }

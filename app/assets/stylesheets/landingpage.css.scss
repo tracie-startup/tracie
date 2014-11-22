@@ -217,4 +217,45 @@ body.landingpage {
       opacity: 0.7;
     }
   }
+
+  .impressum{
+    background-color: $main-color;
+    color: $white-color;
+    .feature-icon, h3 {
+      text-align: center;
+    }
+    div {
+      //font-size: 24pt;
+      //font-weight: 300;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    .value-text, .traciebles-text {
+      //font-size: 28pt;
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-top: 0px;
+      padding-bottom: 60px;
+      font-family: 'Permanent Marker', cursive;
+      font-weight: 400;
+    }
+    .value-text {
+      @include rotate(-1deg);
+    }
+
+    .traciebles-text {
+      @include rotate(1deg);
+    }
+
+    a {
+      color: $footer-color;
+      @include text-shadow(0 0 5px rgba(white, 1));
+      @include transition(all 0.2s);
+      &:hover {
+        @include text-shadow(0 0 1px rgba(black, 0.9), 0 0 5px rgba(white, 1));
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
 }

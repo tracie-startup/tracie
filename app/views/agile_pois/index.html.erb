@@ -36,8 +36,17 @@
 
 <script>
 L.mapbox.accessToken = 'pk.eyJ1IjoicmVuZW1leWUiLCJhIjoiNDNVQnFlSSJ9.AVMZSz8I4zp7qYWfNhHmAg';
-var map = L.mapbox.map('map', 'renemeye.6bc642c5').setView([52.1195724, 11.6291814], 20);
-
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(
+    function (position) {
+      var map = L.mapbox.map('map', 'renemeye.6bc642c5').setView([position.coords.latitude, position.coords.longitude], 20);
+    },
+    function (error) {
+      var map = L.mapbox.map('map', 'renemeye.6bc642c5').setView([52.1195724, 11.6291814], 20);
+    });
+} else {
+  var map = L.mapbox.map('map', 'renemeye.6bc642c5').setView([52.1195724, 11.6291814], 20);
+}
 </script>
 
 <br>

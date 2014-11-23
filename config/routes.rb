@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root 'landingpage#index'
   get 'impressum' => 'landingpage#impressum'
   get 'datenschutz' => 'landingpage#datenschutz'
+  get 'details' => 'landingpage#details'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

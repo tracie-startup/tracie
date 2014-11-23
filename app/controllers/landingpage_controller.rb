@@ -4,6 +4,10 @@ class LandingpageController < ApplicationController
   end
 
   def impressum
-    
+
+  end
+
+  def details
+    @beta_request = BetaRequest.new
   end
 end

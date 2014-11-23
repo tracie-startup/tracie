@@ -89,7 +89,7 @@ body.landingpage {
   }
   header {
     position: relative;
-    &:before {
+    &:after {
       content: " ";
       position: absolute;
       top: 0;
@@ -100,6 +100,7 @@ body.landingpage {
       background-image: image-url("header-map.png");
       background-size: cover;
       display: block;
+      z-index: -1;
     }
     .title {
       font-weight: 100;
@@ -109,7 +110,7 @@ body.landingpage {
     }
     .subtitle {
       font-weight: 300;
-      line-height: 20px;
+      line-height: 1;
       margin-bottom: 80px;
       padding-left: 25px;
     }

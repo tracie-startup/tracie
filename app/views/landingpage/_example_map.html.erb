@@ -4,6 +4,10 @@
   <script>
   L.mapbox.accessToken = 'pk.eyJ1IjoicmVuZW1leWUiLCJhIjoiNDNVQnFlSSJ9.AVMZSz8I4zp7qYWfNhHmAg';
   var test_map = L.mapbox.map('test-map', 'renemeye.6bc642c5').setView([52.1215724, 11.6291814], 16);
+  test_map.dragging.disable();
+  test_map.touchZoom.disable();
+  test_map.doubleClickZoom.disable();
+  test_map.scrollWheelZoom.disable();
   </script>
   <a href="/details/" class="btn btn-default btn-primary col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">Wie funktioniert Tracie?</a>
 </section>

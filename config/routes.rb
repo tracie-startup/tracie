@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :beta_requests
 
   resources :agile_pois

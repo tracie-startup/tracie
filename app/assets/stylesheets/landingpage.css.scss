@@ -27,7 +27,7 @@ body.landingpage {
     @include text-shadow(rgba(white, 0.32) 0px 0px 10px, rgba(white, 0.8) 0px 0px 4px);
     position: relative;
     z-index: 1;
-    &:before{
+    &:before {
       z-index: -1;
       position: absolute;
       background-color: rgba(white, 0.4);

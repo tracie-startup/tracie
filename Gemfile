@@ -54,3 +54,5 @@ gem 'devise'
 gem 'redcarpet'
 
 gem 'unicorn'
+
+gem "letter_opener", :group => :development

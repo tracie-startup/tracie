@@ -20,8 +20,7 @@ body.landingpage {
   }
 
   .btn-primary {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    height: 61px;
     background-color: rgba($main-color, 0.4);
 
     color: $main-color;
@@ -53,8 +52,7 @@ body.landingpage {
   }
 
   .transparent.form-control {
-    padding-top: 30px;
-    padding-bottom: 29px;
+    height: 61px;
     background-color: rgba(white, 0.3);
     border-color: $main-color;
     text-align: center;

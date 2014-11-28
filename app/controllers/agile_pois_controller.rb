@@ -7,6 +7,9 @@ class AgilePoisController < AuthenticatedApplicationController
     respond_with(@agile_pois)
   end
 
+  def map
+  end
+
   def show
     respond_with(@agile_poi)
   end

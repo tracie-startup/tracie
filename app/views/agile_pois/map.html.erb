@@ -1,0 +1,23 @@
+<% html_class "fullscreen_app" %>
+<% body_class "tracie_app" %>
+
+
+<div id='map'></div>
+<button id='goto_my_location' class="map-button"><span class="glyphicon glyphicon-flag"></span></button>
+<button id='add_tracieble' class="map-button"><span class="glyphicon glyphicon-plus"></span></button>
+
+<div class="new-marker">
+  <%= form_for(AgilePoi.new) do |f| %>
+    <div class="input-group">
+      <span class="input-group-btn">
+        <%= f.submit :class => "btn btn-default btn-warning", :value =>"Cancel" %>
+      </span>
+      <%= f.text_field :title, :class => "transparent form-control", :placeholder => "Beschreibung" %>
+      <%= f.hidden_field :latitude %>
+      <%= f.hidden_field :longitude %>
+      <span class="input-group-btn">
+        <%= f.submit :class => "btn btn-default btn-primary", :value =>"+" %>
+      </span>
+    </div>
+  <% end %>
+</div>

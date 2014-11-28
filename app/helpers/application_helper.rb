@@ -1,4 +1,7 @@
 module ApplicationHelper
+  def html_class(html_class)
+    content_for(:html_class){html_class}
+  end
   def body_class(body_class)
     content_for(:body_class){body_class}
   end

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="<%=yield(:html_class)%>">
 <head>
   <meta charset="utf-8">
   <title>Tracie <%= "| #{yield(:page_title)}" unless yield(:page_title).to_s.empty? %></title>
@@ -7,7 +7,8 @@
   <meta name="author" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="<%=image_path('touch-icon-iphone-retina.png')%>">
 
   <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
   <link  href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />

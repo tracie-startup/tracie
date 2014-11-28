@@ -1,0 +1,79 @@
+@import "compass";
+
+$footer-color: #4A4A4A;
+$main-color: #4A90E2;
+$white-color: white;
+
+body.tracie_app {
+
+  .main-navbar {
+    display: none;
+  }
+
+  #map {
+    background-image: image-url("preview-map.png");
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+  }
+
+  .map-button {
+    border-radius: 50%;
+    @include text-shadow(0 0 5px rgba(white, 1));
+    @include transition(all 0.2s);
+    &:hover {
+      @include text-shadow(0 0 1px rgba(black, 0.9), 0 0 5px rgba(white, 1));
+      color: white;
+      text-decoration: none;
+    }
+
+    background-color: transparent;
+    border: 2px solid $main-color;
+
+    color: $main-color;
+    @include text-shadow(rgba(white, 0.32) 0px 0px 10px, rgba(white, 0.8) 0px 0px 4px);
+    position: relative;
+    z-index: 1;
+
+    @include transition(all 0.3s ease-out, color 0.1s, text-shadow 0.2s);
+    &:hover {
+      border: 2px solid $white-color;
+      //@include text-shadow(rgba($main-color, 1) 0px 0px 10px, rgba($main-color, 1) 0px 0px 4px);
+      color: rgba(white,1);
+      &:before {
+        background-color: rgba(white, 0);
+      }
+    }
+  }
+
+  .new-marker {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .glyphicon {
+    font-size: 40px;
+  }
+
+  #add_tracieble {
+    position:absolute;
+    bottom: 20px;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    margin-left: -30px;
+    padding-left: 10px;
+  }
+
+  #goto_my_location {
+    position:absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+  }
+}

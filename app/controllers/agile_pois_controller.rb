@@ -1,4 +1,4 @@
-class AgilePoisController < ApplicationController
+class AgilePoisController < AuthenticatedApplicationController
   before_action :set_agile_poi, only: [:show, :edit, :update, :destroy]
 
   respond_to :html, :json

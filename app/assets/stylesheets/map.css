@@ -1,5 +1,16 @@
- 
- div.container {
+body.agile_pois {
+  padding-top: 0;
+}
+
+body.agile_pois .main-navbar {
+  display: none;
+}
+
+table#pois {
+  overflow: hidden;
+}
+
+div.container {
  }
 
  #map {

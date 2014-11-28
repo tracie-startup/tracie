@@ -1,6 +1,7 @@
+<% body_class "agile_pois" %>
 <h1>Listing agile_pois</h1>
 
-<table>
+<table id="pois">
   <thead>
     <tr>
       <th>Title</th>
@@ -37,21 +38,6 @@
   <button id='add'>Add POI</button>
 </div>
 <script>
-L.mapbox.accessToken = 'pk.eyJ1IjoicmVuZW1leWUiLCJhIjoiNDNVQnFlSSJ9.AVMZSz8I4zp7qYWfNhHmAg';
-var map = L.mapbox.map('map', 'renemeye.6bc642c5').setView([52.1195724, 11.6291814], 15);
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(
-    function (position) {
-      map.setView([position.coords.latitude, position.coords.longitude], 15);
-    },
-    function (error) {
-    });
-}
-
-document.getElementById('add').onclick = function() {
-  L.marker(map.getCenter()).addTo(map);
-}
-
 </script>
 
 <br>

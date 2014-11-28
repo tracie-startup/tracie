@@ -1,6 +1,5 @@
 class AgilePoisController < AuthenticatedApplicationController
   before_action :set_agile_poi, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
   respond_to :html, :json
 
   def index

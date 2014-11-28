@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :beta_requests
 
-  resources :agile_pois,:sessions
+  resources :agile_pois
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   get 'impressum' => 'landingpage#impressum'
   get 'datenschutz' => 'landingpage#datenschutz'
   get 'details' => 'landingpage#details'
-  get "logout" => "sessions#destroy", :as => "logout"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

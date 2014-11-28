@@ -118,7 +118,10 @@ body.landingpage {
       padding-left: 25px;
     }
     .title, .subtitle{
-      color: $white-color;
+      &, a, a:hover {
+        color: $white-color;
+        text-decoration: none;
+      }
       //@inlcude text-shadow(0 0 27px rgba(black, 0.32));
       @include text-shadow(rgba(black, 0.32) 0px 0px 27px, rgba(black, 0.32) 0px 0px 4px);
     }

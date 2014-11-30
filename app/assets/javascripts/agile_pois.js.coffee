@@ -93,3 +93,11 @@ $.fn.serializeObject = ->
 
 clearNewApoiForm = ->
   $('.new-apoi-form input[name^="agile_poi"]').val("")
+
+# Reads paramter from URL
+# getParameterByName = (name) ->
+#   name = name.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]")
+#   regex = new RegExp("[\\?&]#{name}=([^&#]*)")
+#   results = regex.exec(location.search)
+#   return "" unless results
+#   decodeURIComponent results[1].replace(/\+/g," ")

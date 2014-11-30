@@ -8,6 +8,9 @@ class AgilePoisController < AuthenticatedApplicationController
   end
 
   def map
+    unless params[:email] == current_user.email and params[:token] == current_user.authentication_token
+      redirect_to "/app?email=#{current_user.email}&token=#{current_user.authentication_token}"
+    end
   end
 
   def show

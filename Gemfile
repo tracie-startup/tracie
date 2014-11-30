@@ -56,3 +56,6 @@ gem 'redcarpet'
 gem 'unicorn'
 
 gem "letter_opener", :group => :development
+
+#Send mails on heroku
+gem 'postmark-rails', :group => :production

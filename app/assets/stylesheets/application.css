@@ -24,4 +24,5 @@ html.fullscreen_app, html.fullscreen_app body, html.fullscreen_app .container{
     width: 100%;
     padding: 0;
     margin: 0;
+    overflow: hidden;
 }

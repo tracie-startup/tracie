@@ -22,18 +22,74 @@ ready = ->
     dataType: 'text'
     url: '/agile_pois.json'
     success: (data) ->
-      #geojson = $.parseJSON(data)
-      #map.featureLayer.setGeoJSON(geojson)
       points = $.parseJSON(data)
       ####L.circle([point.geometry.coordinates[1], point.geometry.coordinates[0]], 10,point.properties.circle_options).addTo(map) for point in points
 
   # map.on 'click', (ev) ->
   #   coordinates = ev.latlng
   #   Turbolinks.visit "/agile_pois/new?latitude=#{coordinates.lat}&longitude=#{coordinates.lng}"
+  newTraciebleForm = $(".new-apoi-form")
 
-  document.getElementById('add_tracieble').onclick = () ->
-    $(".new-marker").css("display", "block")
+  $('#add_apoi_marker').click (e) ->
+    e.preventDefault()
+    newTraciebleForm.addClass("open")
     ####addNewMarker = L.marker(map.getCenter()).addTo(map)
+    #TODO: callbacks for latitude/longditude manipulation
 
+  $('#cancel_add_apoi').click (e) ->
+    e.preventDefault()
+    clearNewApoiForm()
+    newTraciebleForm.removeClass("open")
+    # TODO: addNewMarker.remove
+
+  $('#submit_agile_poi').click (e) ->
+    e.preventDefault()
+    newTraciebleForm.removeClass("open")
+    # TODO: addNewMarker.remove
+    saveAgilePOI $(".new-apoi-form .new_agile_poi").serializeObject(), ->
+      clearNewApoiForm()
+      #TODO: force redraw of apoi
+
+
+#Ready for Turbolinks
  $(document).ready(ready)
  $(document).on('page:load', ready)
+
+
+##Helper
+saveAgilePOI = (data, callback) ->
+  console.log("foobar")
+  $.ajax
+    type: "POST"
+    dataType: "json"
+    url: "/agile_pois.json"
+    data: data
+    success: callback
+
+$.fn.serializeObject = ->
+  parsed = {}
+  a = this.serializeArray()
+  $.each a, ->
+    if /[^\[]+\[[^\[]+\]/.test @name    #Parse content with names like agile_poi[title]
+      slice = /^([^\[]+)\[([^\[]+)\]/.exec @name
+      form_group = slice[1]
+      form_name = slice[2]
+      if parsed[form_group] is undefined
+        parsed[form_group] = {}
+      if parsed[form_group][form_name] == undefined
+        parsed[form_group][form_name] = @value || ''
+      else
+        unless parsed[form_group][form_name].push
+          parsed[form_group][form_name] = [parsed[form_group][form_name]]
+        parsed[form_group][form_name].push(@value || '')
+    else  #Parse content with normal names
+      if parsed[@name] == undefined
+        parsed[@name] = @value || ''
+      else
+        unless parsed[@name].push
+          parsed[@name] = [parsed[@value]]
+        parsed[@name].push(@value || '')
+  return parsed
+
+clearNewApoiForm = ->
+  $('.new-apoi-form input[name^="agile_poi"]').val("")

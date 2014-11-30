@@ -4,20 +4,20 @@
 
 <div id='map'></div>
 <button id='goto_my_location' class="map-button"><span class="glyphicon glyphicon-flag"></span></button>
-<button id='add_tracieble' class="map-button"><span class="glyphicon glyphicon-plus"></span></button>
+<button id='add_apoi_marker' class="map-button"><span class="glyphicon glyphicon-plus"></span></button>
 
-<div class="new-marker">
+<div class="new-apoi-form">
   <%= form_for(AgilePoi.new) do |f| %>
-    <div class="input-group">
-      <span class="input-group-btn">
-        <%= f.submit :class => "btn btn-default btn-warning", :value =>"Cancel" %>
-      </span>
-      <%= f.text_field :title, :class => "transparent form-control", :placeholder => "Beschreibung" %>
-      <%= f.hidden_field :latitude %>
-      <%= f.hidden_field :longitude %>
-      <span class="input-group-btn">
-        <%= f.submit :class => "btn btn-default btn-primary", :value =>"+" %>
-      </span>
-    </div>
+  <div class="input-group">
+    <span class="input-group-btn">
+      <%= button_tag "Cancel", :class => "btn btn-default btn-warning", :id =>"cancel_add_apoi" %>
+    </span>
+    <%= f.text_field :title, :class => "transparent form-control", :placeholder => "Beschreibung" %>
+    <%= f.hidden_field :latitude %>
+    <%= f.hidden_field :longitude %>
+    <span class="input-group-btn">
+      <%= f.submit :class => "btn btn-default btn-primary", :value =>"+", :id => "submit_agile_poi" %>
+    </span>
+  </div>
   <% end %>
 </div>

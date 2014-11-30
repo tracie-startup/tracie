@@ -26,7 +26,7 @@ class AgilePoisController < AuthenticatedApplicationController
 
   def create
     @agile_poi = AgilePoi.new(agile_poi_params)
-    #@agile_poi.created_by = current_user
+    @agile_poi.created_by = current_user
     @agile_poi.save
     respond_with(@agile_poi)
   end

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :beta_requests
 
   resources :agile_pois
-  get 'app' => 'agile_pois#map'
+  get 'app' => 'agile_pois#map', :as => :app
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

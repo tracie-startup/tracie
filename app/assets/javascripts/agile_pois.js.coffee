@@ -52,8 +52,8 @@ ready = ->
 
 
 #Ready for Turbolinks
- $(document).ready(ready)
- $(document).on('page:load', ready)
+$(document).ready(ready)
+$(document).on('page:load', ready)
 
 
 ##Helper

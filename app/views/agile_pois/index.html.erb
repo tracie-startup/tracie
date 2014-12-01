@@ -8,6 +8,7 @@
       <th>Created by</th>
       <th>Latitude</th>
       <th>Longitude</th>
+      <th>Age</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
         <td><%= agile_poi.created_by %></td>
         <td><%= agile_poi.latitude %></td>
         <td><%= agile_poi.longitude %></td>
+        <td><%= agile_poi.age %></td>
         <td><%= link_to 'Show', agile_poi %></td>
         <td><%= link_to 'Edit', edit_agile_poi_path(agile_poi) %></td>
         <td><%= link_to 'Destroy', agile_poi, method: :delete, data: { confirm: 'Are you sure?' } %></td>

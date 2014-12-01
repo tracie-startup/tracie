@@ -7,48 +7,92 @@
 # with the given map ID, center, and zoom
 ready = ->
 
-  ####L.mapbox.accessToken = 'pk.eyJ1IjoicmVuZW1leWUiLCJhIjoiNDNVQnFlSSJ9.AVMZSz8I4zp7qYWfNhHmAg'
-  ####map = L.mapbox.map('map', 'renemeye.6bc642c5').setView [52.1195724, 11.6291814], 15
+  L.mapbox.accessToken = 'pk.eyJ1IjoicmVuZW1leWUiLCJhIjoiNDNVQnFlSSJ9.AVMZSz8I4zp7qYWfNhHmAg'
+  map = L.mapbox.map('map', 'renemeye.6bc642c5').setView [52.1195724, 11.6291814], 16
+  myPositionLayer = L.mapbox.featureLayer().addTo(map)
   addNewMarker = null
+  agile_pois = null
+
+  go_to_my_location = ->
+    if navigator.geolocation
+      map.locate()
+
+  $latitude = $('.new-apoi-form input[name="agile_poi[latitude]"]')
+  $longitude = $('.new-apoi-form input[name="agile_poi[longitude]"]')
+  setLatLngNewApoiForm = (latitude, longitude)->
+    $latitude.val("#{latitude}")
+    $longitude.val("#{longitude}")
+
+  load_agile_pois = ->
+    agile_pois = new L.FeatureGroup()
+    map.addLayer(agile_pois)
+    $.ajax
+      dataType: 'text'
+      url: '/agile_pois.json'
+      success: (data) ->
+        points = $.parseJSON(data)
+        L.circle([point.geometry.coordinates[1], point.geometry.coordinates[0]], 10,point.properties.circle_options).addTo(agile_pois) for point in points
+
+  redraw_agile_pois = ->
+    map.removeLayer(agile_pois)
+    load_agile_pois()
 
   #Center map to current location
-  if navigator.geolocation
-    navigator.geolocation.getCurrentPosition (position) ->
-      map.setView [position.coords.latitude, position.coords.longitude], 15
-    , (error) -> {}
+  go_to_my_location()
 
   #load aPOIs
-  $.ajax
-    dataType: 'text'
-    url: '/agile_pois.json'
-    success: (data) ->
-      points = $.parseJSON(data)
-      ####L.circle([point.geometry.coordinates[1], point.geometry.coordinates[0]], 10,point.properties.circle_options).addTo(map) for point in points
+  load_agile_pois()
 
   # map.on 'click', (ev) ->
   #   coordinates = ev.latlng
   #   Turbolinks.visit "/agile_pois/new?latitude=#{coordinates.lat}&longitude=#{coordinates.lng}"
   newTraciebleForm = $(".new-apoi-form")
 
+  $('#goto_my_location').click (e) ->
+    e.preventDefault()
+    go_to_my_location()
+
   $('#add_apoi_marker').click (e) ->
     e.preventDefault()
     newTraciebleForm.addClass("open")
-    ####addNewMarker = L.marker(map.getCenter()).addTo(map)
-    #TODO: callbacks for latitude/longditude manipulation
+    addNewMarker = L.marker(map.getCenter(),
+      draggable: true
+    ).addTo(map)
+    setLatLngNewApoiForm(addNewMarker._latlng.lat, addNewMarker._latlng.lng)
+    addNewMarker.on 'move', ->
+      setLatLngNewApoiForm(@_latlng.lat, @_latlng.lng)
 
   $('#cancel_add_apoi').click (e) ->
     e.preventDefault()
-    clearNewApoiForm()
     newTraciebleForm.removeClass("open")
-    # TODO: addNewMarker.remove
+    clearNewApoiForm()
+    map.removeLayer(addNewMarker)
 
   $('#submit_agile_poi').click (e) ->
     e.preventDefault()
     newTraciebleForm.removeClass("open")
-    # TODO: addNewMarker.remove
     saveAgilePOI $(".new-apoi-form .new_agile_poi").serializeObject(), ->
       clearNewApoiForm()
-      #TODO: force redraw of apoi
+      map.removeLayer(addNewMarker)
+      redraw_agile_pois()
+
+  map.on "locationfound", (e) ->
+    map.fitBounds e.bounds
+    myPositionLayer.setGeoJSON
+      type: "Feature"
+      geometry:
+        type: "Point"
+        coordinates: [
+          e.latlng.lng
+          e.latlng.lat
+        ]
+      properties:
+        title: "Here I am!"
+        "marker-color": "#5fa4ff"
+        "marker-symbol": "circle"
+    # And hide the geolocation button
+    return
+
 
 
 #Ready for Turbolinks

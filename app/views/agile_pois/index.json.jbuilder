@@ -9,7 +9,7 @@ json.array!(@agile_pois) do |agile_poi|
     json.description agile_poi.description
     json.circle_options do
       json.color '#e74c3c'
-      json.opacity 1
+      json.opacity agile_poi.age
       json.weight 3
       json.fillColor '#e74c3c'
       json.fillOpacity 1

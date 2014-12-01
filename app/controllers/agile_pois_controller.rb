@@ -3,7 +3,7 @@ class AgilePoisController < AuthenticatedApplicationController
   respond_to :html, :json
 
   def index
-    @agile_pois = AgilePoi.all
+    @agile_pois = AgilePoi.where("created_at >= ?", 6.hours.ago.utc)
     respond_with(@agile_pois)
   end
 
@@ -50,6 +50,6 @@ class AgilePoisController < AuthenticatedApplicationController
     end
 
     def agile_poi_params
-      params.require(:agile_poi).permit(:title, :description, :created_by, :posted_by, :decay_rate, :latitude, :longitude)
+      params.require(:agile_poi).permit(:title, :description, :latitude, :longitude)
     end
 end

@@ -16,16 +16,6 @@
 </p>
 
 <p>
-  <strong>Posted by:</strong>
-  <%= @agile_poi.posted_by %>
-</p>
-
-<p>
-  <strong>Decay rate:</strong>
-  <%= @agile_poi.decay_rate %>
-</p>
-
-<p>
   <strong>Latitude:</strong>
   <%= @agile_poi.latitude %>
 </p>
@@ -33,6 +23,11 @@
 <p>
   <strong>Longitude:</strong>
   <%= @agile_poi.longitude %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @agile_poi.age %>
 </p>
 
 <%= link_to 'Edit', edit_agile_poi_path(@agile_poi) %> |

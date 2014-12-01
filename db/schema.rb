@@ -11,14 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141128073512) do
+ActiveRecord::Schema.define(version: 20141201095902) do
 
   create_table "agile_pois", force: true do |t|
     t.string   "title"
     t.text     "description"
     t.integer  "created_by"
-    t.string   "posted_by"
-    t.float    "decay_rate"
     t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at"

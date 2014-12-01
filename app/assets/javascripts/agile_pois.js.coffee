@@ -28,7 +28,7 @@ ready = ->
     map.addLayer(agile_pois)
     $.ajax
       dataType: 'text'
-      url: '/agile_pois.json'
+      url: "/agile_pois.json?email=#{getParameterByName("email")}&token=#{getParameterByName("token")}"
       success: (data) ->
         points = $.parseJSON(data)
         L.circle([point.geometry.coordinates[1], point.geometry.coordinates[0]], 10,point.properties.circle_options).addTo(agile_pois) for point in points
@@ -139,9 +139,9 @@ clearNewApoiForm = ->
   $('.new-apoi-form input[name^="agile_poi"]').val("")
 
 # Reads paramter from URL
-# getParameterByName = (name) ->
-#   name = name.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]")
-#   regex = new RegExp("[\\?&]#{name}=([^&#]*)")
-#   results = regex.exec(location.search)
-#   return "" unless results
-#   decodeURIComponent results[1].replace(/\+/g," ")
+getParameterByName = (name) ->
+  name = name.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]")
+  regex = new RegExp("[\\?&]#{name}=([^&#]*)")
+  results = regex.exec(location.search)
+  return "" unless results
+  decodeURIComponent results[1].replace(/\+/g," ")

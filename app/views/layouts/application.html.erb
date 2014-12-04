@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="<%=yield(:html_class)%>">
+<html class="<%=yield(:html_class)%>" <%=yield(:manifest)%> >
 <head>
   <meta charset="utf-8">
   <title>Tracie <%= "| #{yield(:page_title)}" unless yield(:page_title).to_s.empty? %></title>

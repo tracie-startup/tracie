@@ -5,6 +5,20 @@ Rails.application.routes.draw do
   resources :agile_pois
   get 'app' => 'agile_pois#map', :as => :app
 
+  offline = Rack::Offline.configure do
+    #   #cache ActionController::Base.helpers.asset_path("header-map.png")
+    cache ActionController::Base.helpers.asset_path("application.css")
+    cache ActionController::Base.helpers.asset_path("application.js")
+    cache ActionController::Base.helpers.asset_path("agile_pois.js")
+    cache ActionController::Base.helpers.asset_path("preview-map.png")
+    #cache ActionController::Base.helpers.font_path("glyphicons-halflings-regular.ttf")
+    cache "https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js"
+    cache "https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css"
+    cache "https://api.tiles.mapbox.com/mapbox.js/v2.1.4/images/icons-000000@2x.png"
+    network "*"
+  end
+  get "/application.manifest" => offline
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

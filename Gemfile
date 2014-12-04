@@ -59,3 +59,6 @@ gem "letter_opener", :group => :development
 
 #Send mails on heroku
 gem 'postmark-rails', :group => :production
+
+#HTML5 Offline support
+gem "rack-offline"

@@ -31,7 +31,7 @@ ready = ->
       url: "/agile_pois.json?email=#{getParameterByName("email")}&token=#{getParameterByName("token")}"
       success: (data) ->
         points = $.parseJSON(data)
-        L.circle([point.geometry.coordinates[1], point.geometry.coordinates[0]], 10,point.properties.circle_options).addTo(agile_pois) for point in points
+        L.circle([point.geometry.coordinates[1], point.geometry.coordinates[0]], 10,point.properties.circle_options).bindPopup(point.properties.name).addTo(agile_pois) for point in points
 
   redraw_agile_pois = ->
     map.removeLayer(agile_pois)

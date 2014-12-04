@@ -1,4 +1,6 @@
 class AgilePoi < ActiveRecord::Base
+  belongs_to :created_by, class_name: "User", foreign_key: :created_by_user_id
+  
   def age
     t = (Time.now - self.created_at) / 3600
     # 1/((x*x*x)/900+0.01)/100 # -> Deutlich flacher

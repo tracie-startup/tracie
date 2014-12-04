@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def app_link
+    "http://tracie.io/app?email=#{email}&token=#{authentication_token}"
+  end
+
   private
 
   def generate_authentication_token

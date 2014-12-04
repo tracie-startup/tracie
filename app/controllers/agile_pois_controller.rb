@@ -39,10 +39,10 @@ class AgilePoisController < AuthenticatedApplicationController
     respond_with(@agile_poi)
   end
 
-  def destroy
-    @agile_poi.destroy
-    respond_with(@agile_poi)
-  end
+  # def destroy
+  #   # @agile_poi.destroy
+  #   # respond_with(@agile_poi)
+  # end
 
   private
     def set_agile_poi

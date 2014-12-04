@@ -1,6 +1,7 @@
 class AgilePoisController < AuthenticatedApplicationController
   before_action :set_agile_poi, only: [:show, :edit, :update, :destroy]
   respond_to :html, :json
+  skip_before_filter :verify_authenticity_token
 
   def index
     @agile_pois = AgilePoi.where("created_at >= ?", 6.hours.ago.utc)

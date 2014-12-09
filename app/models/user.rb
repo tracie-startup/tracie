@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   before_save :ensure_authentication_token
+  has_many :agile_pois, :foreign_key => 'created_by_user_id'
 
   def ensure_authentication_token
     if authentication_token.blank?

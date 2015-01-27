@@ -7,8 +7,12 @@
 # with the given map ID, center, and zoom
 ready = ->
 
-  L.mapbox.accessToken = 'pk.eyJ1IjoicmVuZW1leWUiLCJhIjoiNDNVQnFlSSJ9.AVMZSz8I4zp7qYWfNhHmAg'
-  map = L.mapbox.map('map', 'renemeye.6bc642c5').setView [52.1195724, 11.6291814], 16
+  map = L.map('map',{minZoom: 10, maxZoom: 12}).setView [52.120591, 11.627632], 11
+
+  L.tileLayer('https://s3-eu-west-1.amazonaws.com/maknoll/osm/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo map
+
   myPositionLayer = L.mapbox.featureLayer().addTo(map)
   addNewMarker = null
   agile_pois = null
